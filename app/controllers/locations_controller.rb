@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-	before_action :set_location, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!
+	before_action :set_location, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+	before_action :authenticate_user!, except: [:index]
 
 	def index
 		@locations = Location.all
@@ -41,6 +41,16 @@ class LocationsController < ApplicationController
 	def destroy
 		@location.destroy
 		redirect_to locations_path
+	end
+
+	def upvote
+		@location.upvote_by current_user
+		redirect_to :back
+	end
+
+	def downvote
+		@location.downvote_by current_user
+		redirect_to :back
 	end
 
 	private

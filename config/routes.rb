@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :locations
+  resources :locations do
+    member do
+      put "like", to: "locations#upvote"
+      put "dislike", to: "locations#downvote"
+    end
+  end
 
   root 'locations#index'
   # The priority is based upon order of creation: first created -> highest priority.
