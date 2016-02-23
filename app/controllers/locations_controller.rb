@@ -5,8 +5,16 @@ class LocationsController < ApplicationController
 		@locations = Location.all
 	end
 
+	def show
+		@location = Location.find(params[:id])
+	end
+
 	def new
 		@location = current_user.locations.build
+	end
+
+	def edit
+		@location = Location.find(params[:id])
 	end
 
 	def create
@@ -19,6 +27,18 @@ class LocationsController < ApplicationController
 			flash[:alert] = "New location could not be created"
 			render :new
 		end
+	end
+
+	def update
+		@location = Location.find(params[:id])
+		@location.update(location_params)
+		redirect_to(location_path(@location))
+	end
+
+	def destroy
+		@location = Location.find(params[:id])
+		@location.destroy
+		redirect_to locations_path
 	end
 
 	private

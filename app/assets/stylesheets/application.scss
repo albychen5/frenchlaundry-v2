@@ -39,4 +39,24 @@ body {
   border-radius: 3px;
   border-width: 1px;
   margin-bottom: 20px;
+  padding: 24px;
+}
+
+.post-head {
+  color: #125688;
+  font-size: 15px;
+  line-height: 18px;
+  .thumbnail {}
+  .name {
+    display: block;
+  }
+}
+
+.form-wrapper {
+  width: 60%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 40px;
+  border: 1px solid #eeefef;
+  border-radius: 3px;
 }

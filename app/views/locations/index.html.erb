@@ -3,10 +3,10 @@
 	  <div class="post">
 	  	<div class="post-head">
 	  		<div class="name">
-	  			location.user.user_name
+	  			Albert
 	  		</div>
   		</div>
-				Name: <%= location.name %><br>
+				Name: <%= link_to location.name, location_path(location) %><br>
 				Address: <%= location.address %><br>
 				Category: <%= location.category %><br>
 				Phone Number: <%= location.phone_number %><br>
