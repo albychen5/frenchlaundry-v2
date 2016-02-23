@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h1>Add a new location</h1>
+</div>
+
+<%= simple_form_for @location do |f| %>
+  <%= f.input :name, placeholder: '叫什么？' %>
+  <%= f.input :address, placeholder: '在哪里？' %>
+  <%= f.input :category %>
+  <%= f.input :phone_number %>
+  <%= f.button :submit %>
+<% end %>

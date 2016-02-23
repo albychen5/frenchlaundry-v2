@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FrenchlaundryV2</title>
+  <title>French Laundry V2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<!-- Navbar Partial -->
+<%= render 'layouts/navbar' %>
+
 <body>
+  <div class="container">
+    <!-- Flash Messages -->
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+    <% end %>
 
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>
