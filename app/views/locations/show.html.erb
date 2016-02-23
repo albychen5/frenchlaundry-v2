@@ -1,14 +1,4 @@
-<div class="posts-wrapper row">
-	<div class="post">
-		Name: <%= @location.name %><br>
-		Address: <%= @location.address %><br>
-		Category: <%= @location.category %><br>
-		Phone Number: <%= @location.phone_number %><br>
-		<div class="name">
-			Posted by: <%= @location.user.user_name %>
-		</div>
-	</div>
-</div>
+<%= render 'location', location: @location %>
 
 <div class="text-center edit-links">
 	<%= link_to "Back", locations_path %>
