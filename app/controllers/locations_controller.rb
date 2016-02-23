@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+	before_action :set_location, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
 
 	def index
@@ -6,7 +7,6 @@ class LocationsController < ApplicationController
 	end
 
 	def show
-		@location = Location.find(params[:id])
 	end
 
 	def new
@@ -14,7 +14,6 @@ class LocationsController < ApplicationController
 	end
 
 	def edit
-		@location = Location.find(params[:id])
 	end
 
 	def create
@@ -30,13 +29,16 @@ class LocationsController < ApplicationController
 	end
 
 	def update
-		@location = Location.find(params[:id])
-		@location.update(location_params)
-		redirect_to(location_path(@location))
+		if @location.update(location_params)
+			flash[:success] = "Location updated!"
+			redirect_to(location_path(@location))
+		else
+			flash[:alert] = "New location could not be updated"
+			render :edit
+		end
 	end
 
 	def destroy
-		@location = Location.find(params[:id])
 		@location.destroy
 		redirect_to locations_path
 	end
@@ -44,6 +46,10 @@ class LocationsController < ApplicationController
 	private
 	def location_params
 		params.require(:location).permit(:name, :address, :category, :phone_number)
+	end
+
+	def set_location
+		@location = Location.find(params[:id])
 	end
 
 end
