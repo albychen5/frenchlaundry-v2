@@ -1,15 +1,13 @@
 <div class="posts-wrapper row">
 	<% @locations.each do |location| %>
-	  <div class="post">
-	  	<div class="post-head">
-	  		<div class="name">
-	  			Albert
-	  		</div>
-  		</div>
-				Name: <%= link_to location.name, location_path(location) %><br>
-				Address: <%= location.address %><br>
-				Category: <%= location.category %><br>
-				Phone Number: <%= location.phone_number %><br>
+	<div class="post">
+		Name: <%= link_to location.name, location_path(location) %><br>
+		Address: <%= location.address %><br>
+		Category: <%= location.category %><br>
+		Phone Number: <%= location.phone_number %><br>
+		<div class="name">
+			Posted by: <%= location.user.user_name %>
 		</div>
+	</div>
 	<% end %>
 </div>
