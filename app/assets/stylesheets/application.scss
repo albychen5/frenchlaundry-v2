@@ -53,8 +53,15 @@ body {
 }
 
 .name {
-  color: #125688;
-  text-align: right;
+  display: inline;
+}
+
+.time-ago {
+  display: inline;
+}
+
+.post-footer {
+  text-align: left;
 }
 
 .form-wrapper {
@@ -64,6 +71,10 @@ body {
   padding: 40px;
   border: 1px solid #eeefef;
   border-radius: 3px;
+}
+
+.votes {
+  text-align: right;
 }
 
 footer {

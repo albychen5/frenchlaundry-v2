@@ -5,18 +5,33 @@
 		Address: <%= location.address %><br>
 		Category: <%= location.category %><br>
 		Phone Number: <%= location.phone_number %><br>
-		<div class="name">
-			Posted by: <%= location.user.user_name %>
+
+		<div class="bottom-container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class = "post-footer">
+						<div class="name">
+							Posted by <%= link_to location.user.user_name, profile_path(location.user.user_name) %>
+						</div>
+						<div class="time-ago">
+							<%= time_ago_in_words location.created_at %> ago
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="votes">
+						Votes: <%= location.get_upvotes.size - location.get_downvotes.size %> | 
+
+						<%= link_to like_location_path(location), method: :put do %>
+						赞
+						<% end %>
+						|
+						<%= link_to dislike_location_path(location), method: :put do %>
+						不赞
+						<% end %>
+					</div>
+				</div>
+			</div>
 		</div>
-
-		Votes: <%= location.get_upvotes.size - location.get_downvotes.size %> | 
-
-		<%= link_to like_location_path(location), method: :put do %>
-		赞
-		<% end %>
-		|
-		<%= link_to dislike_location_path(location), method: :put do %>
-		不赞
-		<% end %>
 	</div>
 </div>

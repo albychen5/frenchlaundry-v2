@@ -1,0 +1,7 @@
+<% if @user == current_user %>
+	<%= link_to 'Edit Profile', edit_profile_path(@user.user_name) %>
+<% end %>
+
+<% @locations.each do |location| %>
+	<%= render 'locations/location', location: location %>
+<% end %>

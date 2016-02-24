@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'profiles/show'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :locations do
     member do
@@ -7,6 +9,9 @@ Rails.application.routes.draw do
       put "dislike", to: "locations#downvote"
     end
   end
+
+  get ':user_name', to: 'profiles#show', as: :profile
+  get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
 
   root 'locations#index'
   # The priority is based upon order of creation: first created -> highest priority.
