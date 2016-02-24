@@ -11,20 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224060649) do
+ActiveRecord::Schema.define(version: 20160224062107) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.text     "address"
     t.string   "category"
     t.string   "phone_number"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "user_id"
-    t.integer  "cached_votes_total", default: 0
-    t.integer  "cached_votes_score", default: 0
-    t.integer  "cached_votes_up",    default: 0
-    t.integer  "cached_votes_down",  default: 0
+    t.integer  "cached_votes_total",        default: 0
+    t.integer  "cached_votes_score",        default: 0
+    t.integer  "cached_votes_up",           default: 0
+    t.integer  "cached_votes_down",         default: 0
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
   end
 
   add_index "locations", ["cached_votes_down"], name: "index_locations_on_cached_votes_down"

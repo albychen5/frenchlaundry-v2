@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
 gem 'devise'
 gem 'acts_as_votable', '~> 0.10.0'
+gem "paperclip", "~> 4.3"
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

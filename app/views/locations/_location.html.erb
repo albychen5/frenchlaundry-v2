@@ -1,5 +1,6 @@
 <div class="posts-wrapper">
 	<div class="post">
+		<%= image_tag location.header_image.url(:medium) %><br>
 		Name: <%= link_to location.name, location_path(location) %><br>
 		Address: <%= location.address %><br>
 		Category: <%= location.category %><br>
