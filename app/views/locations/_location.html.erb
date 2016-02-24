@@ -8,14 +8,14 @@
 			Posted by: <%= location.user.user_name %>
 		</div>
 
+		Votes: <%= location.get_upvotes.size - location.get_downvotes.size %> | 
+
 		<%= link_to like_location_path(location), method: :put do %>
 		赞
-		<%= location.get_upvotes.size %>
 		<% end %>
 		|
 		<%= link_to dislike_location_path(location), method: :put do %>
 		不赞
-		<%= location.get_downvotes.size %>
 		<% end %>
 	</div>
 </div>

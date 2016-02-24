@@ -11,18 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223083323) do
+ActiveRecord::Schema.define(version: 20160224060649) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.text     "address"
     t.string   "category"
     t.string   "phone_number"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
+    t.integer  "cached_votes_total", default: 0
+    t.integer  "cached_votes_score", default: 0
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
   end
 
+  add_index "locations", ["cached_votes_down"], name: "index_locations_on_cached_votes_down"
+  add_index "locations", ["cached_votes_score"], name: "index_locations_on_cached_votes_score"
+  add_index "locations", ["cached_votes_total"], name: "index_locations_on_cached_votes_total"
+  add_index "locations", ["cached_votes_up"], name: "index_locations_on_cached_votes_up"
   add_index "locations", ["user_id"], name: "index_locations_on_user_id"
 
   create_table "users", force: :cascade do |t|
