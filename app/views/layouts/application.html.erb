@@ -8,11 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 
+<div class="container-fluid">
 <!-- Navbar Partial -->
 <%= render 'layouts/navbar' %>
 
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <!-- Flash Messages -->
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
@@ -24,4 +25,5 @@
     <%= render 'layouts/footer' %>
   </div>
 </body>
+</div>
 </html>
