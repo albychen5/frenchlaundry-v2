@@ -11,10 +11,10 @@
 				<div class="col-lg-6">
 					<div class = "post-footer">
 						<div class="name">
-							Posted by <%= link_to location.user.user_name, profile_path(location.user.user_name) %>
+							<span class="glyphicon glyphicon-user"></span> <%= link_to location.user.user_name, profile_path(location.user.user_name) %>
 						</div>
 						<div class="time-ago">
-							<%= time_ago_in_words location.created_at %> ago
+							<span class="glyphicon glyphicon-time"></span> <%= time_ago_in_words location.created_at %> ago
 						</div>
 					</div>
 				</div>
@@ -23,11 +23,11 @@
 						Votes: <%= location.get_upvotes.size - location.get_downvotes.size %> | 
 
 						<%= link_to like_location_path(location), method: :put do %>
-						赞
+						<span class="glyphicon glyphicon-arrow-up"></span> 赞
 						<% end %>
 						|
 						<%= link_to dislike_location_path(location), method: :put do %>
-						不赞
+						<span class="glyphicon glyphicon-arrow-down"></span> 不赞
 						<% end %>
 					</div>
 				</div>
